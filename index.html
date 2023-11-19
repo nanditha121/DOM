@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Table</title>
+</head>
+<body>
+
+<script>
+    // Function to generate a table based on user input
+    function generateTable() {
+        // Get the rows and columns count from the user
+        var rowCount = prompt("Enter the number of rows:");
+        var colCount = prompt("Enter the number of columns:");
+
+        // Parse the user input to integers
+        rowCount = parseInt(rowCount, 10);
+        colCount = parseInt(colCount, 10);
+
+        // Validate user input
+        if (isNaN(rowCount) || isNaN(colCount) || rowCount <= 0 || colCount <= 0) {
+            alert("Invalid input. Please enter valid positive integers for rows and columns.");
+            return;
+        }
+
+        // Create a table element
+        var table = document.createElement("table");
+
+        // Create table rows and cells based on user input
+        for (var i = 0; i < rowCount; i++) {
+            // Create a table row
+            var row = table.insertRow();
+
+            for (var j = 0; j < colCount; j++) {
+                // Create a cell in the row
+                var cell = row.insertCell(j);
+
+                // Add content to the cell (you can modify this line to add different content)
+                cell.textContent = "Row " + (i + 1) + ", Column " + (j + 1);
+            }
+        }
+
+        // Append the table to the body of the document
+        document.body.appendChild(table);
+    }
+
+    // Call the function to generate the table
+    generateTable();
+</script>
+
+</body>
+</html>
